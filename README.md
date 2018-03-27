@@ -1,5 +1,9 @@
 # Ansible module for Creating/Deleting/Querying Bitbucket Repos
 
+## Requirements:
+- requests
+- six
+
 ## Example Usage: 
 
 ### Creation:
