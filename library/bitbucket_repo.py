@@ -134,7 +134,7 @@ def repoAction(**kwargs):
       else:
         return False
   except requests.ConnectionError:
-    module.fail_json(msg='Can\'t connect to {}'.format(api_url))
+    module.fail_json(msg='Can\'t connect to {0}'.format(api_url))
     sys.exit(1)
 
 def makeRepo(**kwargs):
@@ -198,7 +198,7 @@ def main():
 
   funcvars = dict()
   funcvars['headers'] = {'Content-Type': 'application/json'}
-  funcvars['base_url'] = '{}/rest/api/1.0'.format(module.params['url'])
+  funcvars['base_url'] = '{0}/rest/api/1.0'.format(module.params['url'])
   funcvars['username'] = module.params['username']
   funcvars['password'] = module.params['password']
   funcvars['project'] = module.params['project_key']
