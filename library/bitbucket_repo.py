@@ -211,13 +211,12 @@ def main():
     result['repo']=makeRepo(**funcvars)
     if result['repo']:
       result['changed'] = True
-  elif facts:
-    if state == 'absent':
-      funcvars['action'] = 'delete'
-      result['repo']=repoAction(**funcvars)
-      if result['repo']:
-        result['changed'] = True
-    elif state == 'query':
+  elif facts and state == 'absent':
+    funcvars['action'] = 'delete'
+    result['repo']=repoAction(**funcvars)
+    if result['repo']:
+      result['changed'] = True
+  else:
       result['repo']=facts
 
   module.exit_json(**result)
